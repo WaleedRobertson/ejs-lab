@@ -77,7 +77,7 @@ app.get('/', (req, res) => {
 app.get('/menu', (req, res) => {
   res.render('menu.ejs', { menuItems: RESTAURANT.menu });
 });
-
+//chatGPT assistance used for finding filter()
 app.get('/menu/:category', (req, res) => {
   const category = req.params.category;
   const categoryMenuItems = RESTAURANT.menu.filter(item => item.category === category);
