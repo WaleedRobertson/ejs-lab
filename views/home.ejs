@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title><%= restaurant.name %></title>
 </head>
 <body>
-  <h1>Home Page</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/menu">Full Menu</a>
+  </nav>
+  
+  <h1> <%= restaurant.name %></h1>
+  <p>Address: <%= restaurant.address %></p>
+  <p>Phone: <%= restaurant.phone %></p>
 </body>
 </html>
