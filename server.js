@@ -58,9 +58,9 @@ const RESTAURANT = {
 // Now modify the existing route that handles the homepage / request. 
 // Update this route to render the home.ejs template in response to a request.
 
-app.get('/', (req, res) => {
-  res.render('home.ejs');
-});
+// app.get('/', (req, res) => {
+//   res.render('home.ejs');
+// });
 
 // Send data to view
 // Using the locals object, send the RESTAURANT data from server.js to the home.ejs view.
@@ -68,7 +68,22 @@ app.get('/', (req, res) => {
 // server.js
 
 app.get('/', (req, res) => {
-  res.render('home', { restaurant: RESTAURANT });
+  res.render('home.ejs', { restaurant: RESTAURANT });
 });
+
+// Using the locals object, pass the menu array data from server.js to the menu.ejs view.
+
+
+app.get('/menu', (req, res) => {
+  res.render('menu.ejs', { menuItems: RESTAURANT.menu });
+});
+
+app.get('/menu/:category', (req, res) => {
+  const category = req.params.category;
+  const categoryMenuItems = RESTAURANT.menu.filter(item => item.category === category);
+
+  res.render('category', { category, menuItems: categoryMenuItems });
+});
+
 
 
